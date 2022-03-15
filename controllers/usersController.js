@@ -22,15 +22,17 @@ const controlUsers = {
         return res.render(path.resolve(__dirname, "..", "views", "register"), {
           allUsers,
           allUserCats,
-          allUserStas,
+          allUserSta,
         });
       })
-      .catch((error) => res.send(error));
+      .catch((error) => {
+          console.log('error-->'+error);
+          // res.send(error);
+        } );
 
-    res.render("register");
+    // res.render("register"); //por que mierda está 2 veces el render??
   },
-  store: function (req, res) {
-    //Primero me traigo los resultados de la validación del formulario
+  store: function (req, res) {    //Primero me traigo los resultados de la validación del formulario
     var timeInMss = Date.now()
 
     const resultValidation = validationResult(req);
