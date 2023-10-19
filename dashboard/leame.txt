@@ -1,0 +1,5 @@
+para arrancar la aplicación utilizar el comando 'npm start' dentro del directorio dashboard.
+
+NOTA: por algun motivo se borraron algunas dependencias, así que simplemente hice un 'npm i' para instalar 
+todos los paquetes requeridos para ejecutar, luego anduvo sin problemas.
+

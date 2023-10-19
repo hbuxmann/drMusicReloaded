@@ -1,6 +1,15 @@
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 // const logger = require('morgan');
+//const dbLending_entity_code = require('./functions/dbLending_entity_code');
+//const sequelize = require('./database/config'); 
+const db = require('./database/models');
+const Op = db.Sequelize.Op;
+//const Lending_entity_code = require('./database/models/Lending_entity_code');
+//global.miVariableGlobal = dbLending_entity_code();
+//global.globalLending_entity_code = null;
+const dbLending_entity_code = require('./functions/dbLending_entity_code');
+const dbLending_entity = require('./functions/dbLending_entity');
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -51,6 +60,33 @@ app.use("/", mainRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 app.use("/carrito", carritoRouter);
+
+let usuariosGlobales = null;
+
+
+async function initializeLendingEntityCode() {
+  try {
+    // Realizar la consulta a la base de datos
+    global.lending_entity_code = await dbLending_entity_code();
+  } catch (error) {
+    console.error('Error trying to recover lending_entity_code:', error);
+  }
+}
+
+// Llamada a la función de inicialización
+initializeLendingEntityCode();
+
+async function initializeLendingEntity() {
+  try {
+    // Realizar la consulta a la base de datos
+    global.lending_entity = await dbLending_entity();
+  } catch (error) {
+    console.error('Error trying to recover lending_entity:', error);
+  }
+}
+
+// Llamada a la función de inicialización
+initializeLendingEntity();
 
 
 

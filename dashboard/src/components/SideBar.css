@@ -1,7 +1,8 @@
 .sideBar {
     background-color:#DF1304;
-    width: 300px;
+    width: 280px;
     text-align: center;
+    /* align-items: center; */
     color: white;
     font-weight: bold;
 }

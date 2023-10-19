@@ -54,5 +54,6 @@ router.get("/logout/", usersController.logout);
 //APIs
 router.get("/api/userlist",           usersController.userList);
 router.get("/api/userdetail/:id",     usersController.userDetail);
+router.post("/api/blacklist",     usersController.blackList);
 
 module.exports = router;
